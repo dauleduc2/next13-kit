@@ -8,7 +8,7 @@ import { useState } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ReduxProvider from "HOC/reduxProvider";
 import { ConfigProvider as AntdConfigProvider } from "antd";
-import theme from "config/themeConfig";
+import theme from "config/theme/themeConfig";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
