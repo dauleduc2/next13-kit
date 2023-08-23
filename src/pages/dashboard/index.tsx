@@ -1,34 +1,23 @@
-import DashboardLayout from "@/components/layout/dashboard";
-import { QueryClient, dehydrate } from "@tanstack/react-query";
+import DashboardLayout from "components/layout/dashboard";
 import Link from "next/link";
 import { FunctionComponent } from "react";
+import { Typography, Button, Space } from "antd";
 
 interface DashboardProps {}
 
 const Dashboard: FunctionComponent<DashboardProps> = () => {
   return (
     <DashboardLayout>
-      <div>current at dashboard</div>
-      <Link href="/">
-        <button>Go to home Home</button>
-      </Link>
+      <Space.Compact direction="vertical">
+        <Typography>current at dashboard</Typography>
+        <Link href="/">
+          <Button type="primary" danger>
+            go to home
+          </Button>
+        </Link>
+      </Space.Compact>
     </DashboardLayout>
   );
-};
-
-export const getServerSideProps = async () => {
-  const queryClient = new QueryClient();
-  await queryClient.fetchQuery(["test"], () =>
-    fetch("https://jsonplaceholder.typicode.com/todos").then((res) =>
-      res.json()
-    )
-  );
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
 };
 
 export default Dashboard;

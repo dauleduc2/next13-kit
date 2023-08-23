@@ -1,4 +1,5 @@
-import HomeLayout from "@/components/layout/home";
+import { Button, Space, Typography } from "antd";
+import HomeLayout from "components/layout/home";
 import Link from "next/link";
 import { FunctionComponent } from "react";
 
@@ -7,10 +8,12 @@ interface HomeProps {}
 const Home: FunctionComponent<HomeProps> = () => {
   return (
     <HomeLayout>
-      <div>current at Home</div>
-      <Link href="/dashboard">
-        <button>dashboard</button>
-      </Link>
+      <Space.Compact direction="vertical">
+        <Typography>current at Home</Typography>
+        <Link href="/dashboard">
+          <Button type="primary">go to dashboard</Button>
+        </Link>
+      </Space.Compact>
     </HomeLayout>
   );
 };
