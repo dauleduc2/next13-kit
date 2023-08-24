@@ -9,6 +9,10 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ReduxProvider from "HOC/reduxProvider";
 import { ConfigProvider as AntdConfigProvider } from "antd";
 import theme from "config/theme/themeConfig";
+import { initHttpClient } from "config/axios/client";
+import { store } from "redux/store";
+
+initHttpClient(store);
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient());
