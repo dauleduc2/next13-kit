@@ -1,8 +1,8 @@
 "use client";
 
-import { Layout } from "antd";
-import { Header, Content, Footer } from "antd/es/layout/layout";
 import { FC, PropsWithChildren } from "react";
+import { Layout } from "antd";
+import { Content, Header } from "antd/es/layout/layout";
 
 const CommonLayout: FC<PropsWithChildren> = ({ children }) => {
   return (

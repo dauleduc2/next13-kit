@@ -1,14 +1,15 @@
 "use client";
 
+import { FC, PropsWithChildren } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import ReduxProvider from "HOC/reduxProvider";
-import StyledComponentsRegistry from "../../lib/AntdRegistry";
-import theme from "config/theme/themeConfig";
 import { ConfigProvider as AntdConfigProvider } from "antd";
-import { FC, PropsWithChildren } from "react";
 import { initHttpClient } from "config/axios/client";
+import theme from "config/theme/themeConfig";
+import ReduxProvider from "HOC/reduxProvider";
 import { store } from "redux/store";
+
+import StyledComponentsRegistry from "../../lib/AntdRegistry";
 
 initHttpClient(store);
 

@@ -1,8 +1,8 @@
 import axios from "axios";
+import { ENV_VARIABLES } from "constants/envVariables";
+import { Store } from "redux/store";
 
 import { addInterceptor } from "./interceptor";
-import { Store } from "redux/store";
-import { ENV_VARIABLES } from "constants/envVariables";
 
 const httpClient = axios.create({
   baseURL: ENV_VARIABLES.BASE_URL,

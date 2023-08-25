@@ -1,7 +1,9 @@
 import { FC, PropsWithChildren } from "react";
+import CommonLayout from "components/layout/home";
+
 import AppConfig from "./config";
 import { NextAuthProvider } from "./providers";
-import CommonLayout from "components/layout/home";
+
 const RootLayout: FC<PropsWithChildren> = async ({ children }) => {
   return (
     <html lang="en">

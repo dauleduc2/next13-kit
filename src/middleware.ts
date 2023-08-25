@@ -1,7 +1,7 @@
 import withAuth from "next-auth/middleware";
 
 export default withAuth(
-  (req) => {
+  (_req) => {
     // console.log("==================");
     // console.log(req.nextauth);
     // console.log("==================");
@@ -11,5 +11,5 @@ export default withAuth(
     callbacks: {
       authorized: () => true,
     },
-  }
+  },
 );

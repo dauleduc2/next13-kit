@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { FunctionComponent } from "react";
-import { Typography, Button, Space } from "antd";
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import { signIn } from "next-auth/react";
+import { Button, Space, Typography } from "antd";
 interface DashboardProps {}
 
 const Dashboard: FunctionComponent<DashboardProps> = () => {
