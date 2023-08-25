@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import { AxiosInstance } from "axios";
 import { Store } from "redux/store";
 
 export const addInterceptor = (clientInstance: AxiosInstance, store: Store) => {

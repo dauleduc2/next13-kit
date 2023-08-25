@@ -1,33 +1,32 @@
-import type { AppProps } from "next/app";
-import {
-  Hydrate,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
-import { useState } from "react";
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import ReduxProvider from "HOC/reduxProvider";
-import { ConfigProvider as AntdConfigProvider } from "antd";
+import StyledComponentsRegistry from "../../lib/AntdRegistry";
 import theme from "config/theme/themeConfig";
+import { ConfigProvider as AntdConfigProvider } from "antd";
+import { FC, PropsWithChildren } from "react";
 import { initHttpClient } from "config/axios/client";
 import { store } from "redux/store";
 
 initHttpClient(store);
 
-const App = ({ Component, pageProps }: AppProps) => {
-  const [queryClient] = useState(() => new QueryClient());
+const queryClient = new QueryClient();
+
+const AppConfig: FC<PropsWithChildren> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
+      <StyledComponentsRegistry>
         <AntdConfigProvider theme={theme}>
           <ReduxProvider>
-            <Component {...pageProps} />
+            {children}
             <ReactQueryDevtools initialIsOpen={false} />
           </ReduxProvider>
         </AntdConfigProvider>
-      </Hydrate>
+      </StyledComponentsRegistry>
     </QueryClientProvider>
   );
 };
 
-export default App;
+export default AppConfig;

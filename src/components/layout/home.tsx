@@ -1,12 +1,16 @@
+"use client";
+
+import { Layout } from "antd";
+import { Header, Content, Footer } from "antd/es/layout/layout";
 import { FC, PropsWithChildren } from "react";
 
-const HomeLayout: FC<PropsWithChildren> = ({ children }) => {
+const CommonLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div>This is Home Layout</div>
-      {children}
-    </div>
+    <Layout>
+      <Header>Header</Header>
+      <Content>{children}</Content>
+    </Layout>
   );
 };
 
-export default HomeLayout;
+export default CommonLayout;
